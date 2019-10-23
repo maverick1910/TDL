@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<link rel="stylesheet" type="text/css" href="tdl.css">
+  <head>
+    <meta charset="utf-8">
+    <title>Check list</title>
+  </head>
+  <body>
+    <div id="myDIV" style="display:none;" class="header">
+      <input type="text" id="myInput" placeholder="Hey procrastinator! Type here.">
+      <span onclick="newElement()" class="addBtn" style="bold">ADD</span>
+    </div>
+
+<ul id="myUL" style="list-style-type:none">
+  <li>task 1 </li>
+  <li>task 2 </li>
+  <li>task 3 </li>
+  <li>task 4 </li>
+  <li>task 5 </li>
+</ul>
+<button type="button" id="btn" name="button" onclick="showDiv()" class="adding" >+</button>
+  </body>
+</html>
+
+
+<script type="text/javascript">
+
+function showDiv() {
+   document.getElementById('myDIV').style.display = "block";
+   document.getElementById("myUL").style.display="none";
+   document.getElementById("btn").style.display="none";
+}
+
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+}
+
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
+
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
+
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
+
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+  document.getElementById('myUL').style.display = "block";
+  document.getElementById("myDIV").style.display="none";
+  document.getElementById('btn').style.display = "block";
+}
+</script>

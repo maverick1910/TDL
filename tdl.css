@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  position: relative;
+  border-radius: 20px;
+  padding: 5%;
+  background: #eee;
+  width: 95%;
+  text-align: center;
+  margin-left: 2.5%;
+  font-size: 18px;
+  transition: 0.2s;
+  margin-bottom: 2%;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+
+ul li:hover {
+  background: #ddd;
+}
+
+ul li.checked {
+  background: lightgreen;
+  color: white;
+  text-decoration: line-through;
+}
+ul li.checked:nth-child(even) {
+  background: lightgreen;
+  color: white;
+  text-decoration: line-through;
+}
+
+
+ul li:nth-child(even) {
+  background: lightblue;
+  color: white;
+}
+
+ul li.checked::before {
+  content: '';
+  position: absolute;
+  border-color: #fff;
+  border-style: solid;
+  border-width: 0 2px 2px 0;
+  top: 10px;
+  left: 16px;
+  transform: rotate(45deg);
+  height: 15px;
+  width: 7px;
+}
+
+.close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 12px 16px 12px 16px;
+}
+
+.close:hover {
+  color:red;
+  font-weight: bold;
+}
+.adding{
+  position: fixed;
+  background: pink;
+  border:10px solid #cfdcec;
+  bottom: 10px;
+  right: 10px;
+  height: 100px;
+  width: 100px;
+  font-size: 50px;
+  font-family: cursive;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+.header {
+  background-color: grey;
+  padding: 30px 40px;
+  color: white;
+  width: 50%;
+  margin-top: 20%;
+  margin-left: 25%;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.header:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+input {
+  margin: 0;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  background-color: white;
+  padding: 10px;
+  float: left;
+  font-size: 16px;
+}
+
+.addBtn {
+  padding: 10px;
+  width: 10%;
+  color: white;
+  float: left;
+  margin-left: 45%;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.5s;
+  border-radius: 5px;
+}
+
+.addBtn:hover {
+  background-color: #bbb;
+}
+body{
+  background-color: black;
+}
